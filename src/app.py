@@ -23,12 +23,13 @@ def chart_week():
 
 #@route('/login')
 @get('/login')
-def login_form():
+def login_form():# p前面有没有“/”没区别吗？“/”是干嘛的？
     return '''<form method = "POST">
-        <input name="name" type="text" />
-        <input name="password" type="password" />
-        <input type="submit" value="Login" />
-        </form>'''
+         <p>用户名：<p><input name="name" type="text" />
+         <p>密码：</p><input name="password" type="password" />
+         <p> </p>
+         <input type="submit" value="Login" />
+         </form>'''
 
 #@route('/login', method = 'POST')
 @post('/login')
