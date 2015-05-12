@@ -7,11 +7,10 @@ from bottle import route, run, get, post, request
 @route('/index.html')
 def index():
     return '''<a href="/chart">书单排行表</a>
-        
+        <p> </p>
         <a href="/chart_week">本周排行表</a>
-        
+        <p> </p>
         <a href="/login">登陆</a>'''
-        #这里有个疑问，怎么分行？
 
 @route('/chart')
 def chart():
@@ -36,8 +35,11 @@ def login_form():
 def login():
     name = request.forms.get('name')
     password = request.forms.get('password')
-    if check_login(name, password):
-        return '<p>Your login was correct</p>'
+    if check_login(name, password):#这里有个疑问，怎么将用户名写入？
+        return '''<p>Hi,name???. Your login was correct</p>
+                  <a href="/chart">书单排行表</a>
+                  <p> </p>
+                  <a href="/chart_week">本周排行表</a>'''
     else:
         return '<p>Login failed</p>'
 
