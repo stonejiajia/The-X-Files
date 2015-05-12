@@ -79,8 +79,7 @@ class DouBanSpider(object) :
 def main() :
     print """
         ###############################
-            一个简单的豆瓣电影前100爬虫
-            Author: Andrew_liu
+            一个简单的豆瓣图书爬虫
             Version: 0.0.1
             Date: 2014-12-04
         ###############################
