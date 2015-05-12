@@ -3,10 +3,9 @@
 """
 一个简单的Python爬虫, 用于抓取豆瓣读书的书名
 Version: 0.0.1
-Date: 2014-5-12
+Date: 2015-5-12
 Language: Python2.7.8
 Editor: Sublime Text2
-Operate: 具体操作请看README.md介绍
 """
 import string
 import re
@@ -54,7 +53,7 @@ class DouBanSpider(object) :
 
     def find_title(self, my_page) :
         """
-        通过返回的整个网页HTML, 正则匹配前100的电影名称
+        通过返回的整个网页HTML
         
         Args:
             my_page: 传入页面的HTML文本用于正则匹配
