@@ -90,4 +90,4 @@ def main() :
     print "豆瓣爬虫爬取结束..."
 
 if __name__ == '__main__':
-    main
+    main()
