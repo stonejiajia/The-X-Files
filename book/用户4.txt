@@ -1,0 +1,123 @@
+1 The Boost C++ Libraries
+2 Debugging
+3 Pragmatic Version Control Using Subversion
+4 Parallel Programming with MPI
+5 Effective C++
+6 How to Read a Book
+7 Java Concurrency in Practice
+8 Recommender Systems Handbook
+9 浪客行 1
+10 sed &amp; awk
+11 The Lean Startup
+12 Social Network Analysis for Startups
+13 Hadoop in Action
+14 Scala编程
+15 The Joy of Clojure
+16 The Now Habit
+17 The Selfish Gene
+18 JavaScript: The Good Parts
+19 计算动词理论及应用
+20 Clojure in Action
+21 Metaprogramming Ruby
+22 Bit Literacy
+23 JavaScript: The Definitive Guide, 5th Edition
+24 JavaScript语言精粹
+25 季羡林谈佛
+26 Learn You a Haskell for Great Good!
+27 Coders at Work
+28 Machine Learning for Hackers
+29 批评中医
+30 Python科学计算
+31 Change Anything
+32 Procrastination
+33 1988：我想和这个世界谈谈
+34 Python Testing: Beginner&#39;s Guide
+35 The Clean Coder
+36 浪潮之巅
+37 球状闪电
+38 民主的细节
+39 The Basics of Hacking and Penetration Testing
+40 Effective Perl Programming
+41 How to Study in College
+42 Intermediate Perl
+43 Learning Perl
+44 超级整理术
+45 Rewire Your Brain
+46 The Productive Programmer
+47 John Von Neumann
+48 The Elements of Style
+49 Building Great Sentences (Audiobook)
+50 sed and awk Pocket Reference, 2nd Edition
+51 You Are Not Your Brain
+52 The Official Guide to the New TOEFL iBT with CD-ROM (Official Guide to the Toefl Ibt)
+53 新托福iBT词汇分类突破
+54 UNIX Shells by Example
+55 Pragmatic Thinking and Learning
+56 C语言接口与实现
+57 Programming in Lua, Second Edition
+58 Clean Code
+59 Linux C编程一站式学习
+60 Test Driven Development for Embedded C
+61 The Game
+62 OpenCV 2 Computer Vision Application Programming Cookbook
+63 Learning OpenCV
+64 上帝掷骰子吗
+65 朗文英语语法
+66 三体Ⅲ
+67 三體 Ⅱ
+68 三体
+69 Data Mining
+70 Demystifying Dissertation Writing
+71 R Cookbook
+72 The 4-Hour Body
+73 Mathematica Cookbook
+74 Illustrating Evolutionary Computation With Mathematica
+75 The Talent Code
+76 Becoming a Successful Scientist
+77 A Rulebook for Arguments
+78 Personal Development for Smart People
+79 The Student&#39;s Introduction to MATHEMATICA ®
+80 Pomodoro Technique Illustrated
+81 模拟CMOS集成电路设计
+82 模拟和数字电子电路基础
+83 小强升职记
+84 The Paradox of Choice
+85 The Power of Full Engagement
+86 思考的整理术
+87 幸福之路
+88 The Shallows
+89 把时间当作朋友
+90 The China Study
+91 Flow
+92 Python Essential Reference
+93 找寻逝去的自我
+94 In Search of Memory
+95 How to Write a Lot
+96 计算智能
+97 Your Brain at Work
+98 诚实做学问
+99 怪诞行为学
+100 独唱团（第一辑）
+101 读史阅世六十年
+102 科学与怪异
+103 The Psychology of Invention in the Mathematical Field
+104 Radical Honesty
+105 越读者
+106 Mastery
+107 Learning Python, 3rd Edition
+108 影响力
+109 专业主义
+110 算法导论（原书第2版）
+111 鸟哥的Linux私房菜 基础学习篇(第二版)
+112 Beyond Feelings
+113 Pro Git
+114 经济学原理
+115 Artificial Intelligence for Games (The Morgan Kaufmann Series in Interactive 3D Technology)
+116 Design Patterns
+117 GNU Emacs Lisp 编程入门
+118 The Art of Learning
+119 Linux高级程序设计
+120 Shell脚本学习指南
+121 记忆心理学
+122 李敖回忆录
+123 计算理论导引
