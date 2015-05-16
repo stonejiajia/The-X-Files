@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel=stylesheet href=jquery-mobile/css/jquery.mobile-1.4.5.css>
+		<script src=jquery/jquery-1.11.3.min.js></script>
+		<script src=jquery-mobile/js/jquery.mobile-1.4.5.js></script>
+		<script src=hightcharts/highcharts.js></script>
+		<script src=hightcharts/modules/exporting.js></script>
+		<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Most Popular Books in OMC'
+        },
+        subtitle: {
+            text: 'in this week'
+        },
+        xAxis: {
+            categories: ['Books'], //'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Tags by members',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 230,
+            floating: true,
+            borderWidth: 1,
+	    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Lovers',
+            data: [107]
+        }, {
+            name: 'Robots Rebel',
+            data: [133]
+        }, {
+            name: 'Elements of Styels',
+            data: [97]
+	}, {
+	    name: 'Story',
+	    data: [200]
+	}]
+    });
+});
+		</script>
+	</head>
+	<body>
+
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+	</body>
+</html>
