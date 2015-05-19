@@ -59,7 +59,7 @@ class DouBanSpider(object) :
             my_page: 传入页面的HTML文本用于正则匹配
         """
         temp_data = []
-        book_items = re.findall(r'href="http://book.douban.com/subject/......./" title="(.*?)"', my_page, re.S)
+        book_items = re.findall(r'href="http://book.douban.com/subject/......./" title="(.*?)"', my_page)
         for index, item in enumerate(book_items) :
             if item.find("&nbsp") == -1 :
                 temp_data.append("Top" + str(self._top_num) + " " + item)
