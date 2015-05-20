@@ -27,21 +27,22 @@
                 
                     loading = true;
                     protocol = document.location.protocol == 'file:' ? 'http:' : document.location.protocol;
-                    //url = 'http://svntesting.sinaapp.com/';
-                    url = 'http://zippy1978.tumblr.com/rss';
+                    url = 'cp42.sinaapp.com';
+                    //url = 'http://zippy1978.tumblr.com/rss';
                     $.ajax({
                     type: "GET",
-                    url: protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url),
-                    //url: protocol + encodeURIComponent(url),
-                    dataType: 'json',
+                    //url: protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url),
+                    url: protocol + encodeURIComponent(url),
+                    //dataType: 'json',
+                    dataType: 'text',
                     error: function(){
                         loading = false;
                     },
-                    success: function(xml){
+                    success: function(xmlbook){
                         
                         var targetList = $('#items');
                         
-                        values = xml.responseData.feed.entries;
+                        /*values = xml.responseData.feed.entries;
                         
                         // First page
                         if (nextPageIndex == 0) {
@@ -52,7 +53,10 @@
                             targetList.append('<li><img class="ui-li-icon" src="https://lh5.googleusercontent.com/-T4SN-W1_Gkk/AAAAAAAAAAI/AAAAAAAAAv0/xRQBInxIzJo/s120-c/photo.jpg"/><h3 class="wrapping-new-line"><a href="' + this.link + '">' + this.title + '</a></h3><p class="wrapping-new-line">' + this.contentSnippet + '<a href="' + this.link + '">read more</a></p><p class="date">' + this.publishedDate + '</p></li>');
                         });
 
-                        targetList.listview("refresh");
+                        targetList.listview("refresh");*/
+
+                        //var txt = document.getElementById("textscroller").value;
+                        document.getElementById("textscroller").innerHTML = xmlbook;
 
                         // Hide pull header after first page is loaded
                         if (nextPageIndex == 0) {
@@ -79,81 +83,126 @@
                 loadMore();
             });
 
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: '本周热点图书'
-        },
-        subtitle: {
-            text: 'in this week'
-        },
-        xAxis: {
-            categories: ['Books'], //'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'],
-            title: {
-                text: null
+            function showBookChart() {
+                $('#bookchart').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: '本周热点图书'
+                    },
+                    subtitle: {
+                        text: 'in this week'
+                    },
+                    xAxis: {
+                        categories: ['Books'], //'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'],
+                        title: {
+                            text: null
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Tags by members',
+                            align: 'high'
+                        },
+                        labels: {
+                            overflow: 'justify'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ' millions'
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -10,
+                        y: 230,
+                        floating: true,
+                        borderWidth: 1,
+            	        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Lovers',
+                        data: [107]
+                    }, {
+                        name: 'Robots Rebel',
+                        data: [133]
+                    }, {
+                        name: 'Elements of Styels',
+                        data: [97]
+            	    }, {
+            	    name: 'Story',
+            	    data: [200]
+            	    }]
+                });
             }
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Tags by members',
-                align: 'high'
-            },
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' millions'
-        },
-        plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -10,
-            y: 230,
-            floating: true,
-            borderWidth: 1,
-	        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-            shadow: true
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Lovers',
-            data: [107]
-        }, {
-            name: 'Robots Rebel',
-            data: [133]
-        }, {
-            name: 'Elements of Styels',
-            data: [97]
-	    }, {
-	    name: 'Story',
-	    data: [200]
-	    }]
-    });
-});
 
-
+            $(showBookChart);
 
 </script>
+
+<style type="text/css">
+#textscroller {
+    /*position: absolute; */
+    z-index: 1;
+    top: 400px;
+    bottom: 48px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+#bookchart {
+    /*position: absolute; */ /*This code will block pull-to-refresh function*/ 
+    z-index: 1;
+    top: 0px;
+    bottom: 48px;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: #fff;
+    overflow: hidden;
+}
+
+p {
+    font-size: 16px;
+    padding: 1.2em;
+    line-height: 200%;
+}
+</style>
 </head>
 
 <body>
 
-<div id="container"  data-role="content" data-scrollz="pull" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+<div id="container"  data-role="content" data-scrollz="pull">
+    <div id="bookchart"></div>
+    <div id="textscroller" >
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
 
 </div>
 </body>
