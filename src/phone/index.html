@@ -9,7 +9,6 @@
 		<script src=jquery-mobile/js/jquery.mobile-1.4.5.js></script>
         <!--highcharts-->
 		<script src=hightcharts/highcharts.js></script>
-		<script src=hightcharts/modules/exporting.js></script>
         <!-- Scrollz -->
         <link rel=stylesheet href=jquery-scrollz/jquery.scrollz.css>
         <script src=jquery-scrollz/jquery.scrollz.min.js></script>
@@ -95,57 +94,34 @@
                         text: 'in this week'
                     },
                     xAxis: {
-                        categories: ['Books'], //'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'],
-                        title: {
-                            text: null
-                        }
+                        categories: ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']//,
                     },
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Tags by members',
-                            align: 'high'
-                        },
-                        labels: {
-                            overflow: 'justify'
+                            text: '标记人数'
                         }
                     },
                     tooltip: {
-                        valueSuffix: ' millions'
+                        valueSuffix: '人'
                     },
                     plotOptions: {
-                        bar: {
-                            dataLabels: {
-                                enabled: true
-                            }
+                        series:{
+                            stacking: 'normal'
                         }
                     },
                     legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'top',
-                        x: -10,
-                        y: 230,
-                        floating: true,
-                        borderWidth: 1,
-            	        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                        shadow: true
-                    },
-                    credits: {
-                        enabled: false
+                        reversed: true
                     },
                     series: [{
-                        name: 'Lovers',
-                        data: [107]
+                        name: '已读',
+                        data: [5,3,4,7,2]
                     }, {
-                        name: 'Robots Rebel',
-                        data: [133]
+                        name: '在读',
+                        data: [2,2,3,2,1]
                     }, {
-                        name: 'Elements of Styels',
-                        data: [97]
-            	    }, {
-            	    name: 'Story',
-            	    data: [200]
+                        name: '想读',
+                        data: [3,4,4,2,5]
             	    }]
                 });
             }
