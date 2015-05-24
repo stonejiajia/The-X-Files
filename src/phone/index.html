@@ -41,6 +41,7 @@
                         
                         var targetList = $('#items');
                         
+                        
                         /*values = xml.responseData.feed.entries;
                         
                         // First page
@@ -60,7 +61,16 @@
                         //   list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
                         //   $('#bookchart').highcharts();
                         //   }
-                        list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
+                        list_book = ['机器人叛乱', '创造力', '失控' , '经验的疆界', '神们自己' , '心思大开' ];
+                    
+                        var str="从0到1"
+                        var bookcut = str.substr(0,2);
+                        list_book.push(bookcut);
+                        list1.push(5);
+                           
+                        //var book ＝ "经验的疆界"
+                        //var bookcut = book.substr(0,2);
+                        //list.push(bookcut1);
                         showBookChart();
 
                         // Hide pull header after first page is loaded
@@ -87,8 +97,8 @@
                 // Reload
                 loadMore();
             });
-            list = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']
-            list1 = [3,6,4,7,8]
+            list_book = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles' , 'sss']
+            list1 = [3,6,4,7,8,7]
             function showBookChart() {
                 $('#bookchart').highcharts({
                     chart: {
@@ -101,7 +111,7 @@
                         text: 'in this week'
                     },
                     xAxis: {
-                        categories: list //['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']
+                        categories: list_book //['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']
                     },
                     yAxis: {
                         min: 0,
