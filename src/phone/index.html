@@ -56,6 +56,12 @@
 
                         //var txt = document.getElementById("textscroller").value;
                         document.getElementById("textscroller").innerHTML = xmlbook;
+                        //if (loading == ture) {
+                        //   list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
+                        //   $('#bookchart').highcharts();
+                        //   }
+                        list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
+                        showBookChart();
 
                         // Hide pull header after first page is loaded
                         if (nextPageIndex == 0) {
@@ -81,7 +87,8 @@
                 // Reload
                 loadMore();
             });
-
+            list = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']
+            list1 = [3,6,4,7,8]
             function showBookChart() {
                 $('#bookchart').highcharts({
                     chart: {
@@ -94,7 +101,7 @@
                         text: 'in this week'
                     },
                     xAxis: {
-                        categories: ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']//,
+                        categories: list //['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles']
                     },
                     yAxis: {
                         min: 0,
@@ -115,19 +122,21 @@
                     },
                     series: [{
                         name: '已读',
-                        data: [5,3,4,7,2]
-                    }, {
-                        name: '在读',
-                        data: [2,2,3,2,1]
-                    }, {
-                        name: '想读',
-                        data: [3,4,4,2,5]
+                        data: list1//[5,3,4,7,2]
+                    //}, {
+                     //   name: '在读',
+                     //   data: [2,2,3,2,1]
+                    //}, {
+                     //   name: '想读',
+                     //   data: [3,4,4,2,5]
             	    }]
                 });
             }
 
             $(showBookChart);
-
+            
+            
+            //list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
 </script>
 
 <style type="text/css">
