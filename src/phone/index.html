@@ -63,19 +63,26 @@
                                    var i = 0;
                                    
                                    //var pop_book_list = JSON.parse('[{"name": "机器人叛乱", "want": 15}, {"name": "创造力", "want": 13}, {"name":"从0到1", "want": 7}, {"name":"失控", "want": 7}, {"name":"经验的疆界", "want": 3}]');
-                                   var pop_book_list = JSON.parse(xmlbook);
-                                   book_list.length = 0;
-                                   tag_number_list.length = 0;
-                                   for (i=0; i < pop_book_list.length; i++){
-                                   book_list.push(pop_book_list[i].name);
-                                   tag_number_list.push(pop_book_list[i].want);
-                                   }
+                                var pop_book_list = JSON.parse(xmlbook);
+                                book_list.length = 0;
+                                tag_number_list.length = 0;
+                                for (i=0; i < pop_book_list.length; i++){
+                                    var bookname = pop_book_list[i].name;
+                                    if (bookname.length > 5){
+                                        cut_bookname = bookname.substr(0,4);
+                                        cut_bookname += '...';
+                                        book_list.push(cut_bookname);
+                                    }else{
+                                        book_list.push(bookname);
+                                    }                                  
+                                    tag_number_list.push(pop_book_list[i].want);
+                                }
                                    
                                    //截断书名的代码
-                                   var str="创新算法"
-                                   var bookcut = str.substr(0,2);
-                                   book_list.push(bookcut);
-                                   tag_number_list.push(6);
+                                //   var str="创新算法"
+                                 //  var bookcut = str.substr(0,2);
+                                 //  book_list.push(bookcut);
+                                 //  tag_number_list.push(6);
           
                                    
                                    showBookChart();
@@ -104,9 +111,11 @@
                                // Reload
                                loadMore();
                                });
-                               book_list = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'];
-                               tag_number_list = [3,6,4,7,8];
-                               function showBookChart() {
+
+
+                                book_list = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'];
+                                tag_number_list = [3,6,4,7,8];
+                                function showBookChart() {
                                    $('#bookchart').highcharts({
                                                               chart: {
                                                               type: 'bar'
@@ -148,7 +157,7 @@
                                                                        //   data: [3,4,4,2,5]
                                                                        }]
                                                               });
-                               }
+                }
                 
                 $(showBookChart);
                 
@@ -174,7 +183,7 @@
                     bottom: 48px;
                     left: 0;
                     width: 100%;
-                    height: 400px;
+                    height: 800px;
                     background: #fff;
                     overflow: hidden;
                 }
