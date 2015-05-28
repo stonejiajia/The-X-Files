@@ -2,6 +2,7 @@
 
 import re
 import urllib2
+import time
 
 class bookIf:
     def __init__(self, youth_booklist_url, author_booklist_url):
@@ -13,29 +14,48 @@ class bookIf:
             return None
         else:
             # use urllib to get html data from url
-            i = 0
-            doulist_content = []
+            item = 0
+            total_book_list = []
             while 1:
-                urlcheck = self.youth_booklist_url + "?start={0}&sort=time".format(i)
+                urlcheck = self.youth_booklist_url + "?start={0}&sort=time".format(item)
                 response = urllib2.urlopen(urlcheck)
-                #print "=============================================read page " + str(i/25+1) + "==================================================="
+                #print "=============================================read page " + str(item/25+1) + "==================================================="
                 #print urlcheck
-                #print response.read()
-                # use re.findall to get a raw match (as douban.com show twice a input list.)
-                # as the time to remove duplicate accumulates, better way is match only once,
-                # and then cut unwanted parts (of course its an better algorithm as it is O(n))
-                book_url_in_page = re.findall('http://book.douban.com/subject/[0-9]*/', response.read())
-                if not book_url_in_page:
-                    break
+                html_text = response.read()
+                #print html_text
+                #print "===============================================================raw and one line============================================================="
+                #oneline_html_text = raw_html.replace('\n', ' ').replace('\r', '')
+                #striped_html = raw_html.strip('\n')
+                #striped_html = striped_html.strip('\r')
+                #striped_html = striped_html.strip('\n')
+                #print oneline_html_text
+                html_text_list = html_text.splitlines()
+                #print "==========================================================raw and one line========================================================="
+                #print html_text_list
+                book_list = []
+                for i in range(0, len(html_text_list)):
+                    if html_text_list[i].find('<div class="title">') >= 0:
+                        #rematch = re.match(r'(http://book.douban.com/subject/)([0-9]+)(/)', html_text_list[i+1])
+                        rematch = re.search('(?<=subject/)\d+', html_text_list[i+1])
+                        if rematch:
+                            book_id = rematch.group(0)
+                            book_name = html_text_list[i+2].strip()
+                            book_info = {"book_id":"", "book_name":""}
+                            book_info['book_id'] = book_id
+                            book_info['book_name'] = book_name
+                            #print book_info
+                            book_list.append(book_info)
+                     
+                #print "==========================================================whole book_list========================================================="        
+                if book_list:
+                    print book_list
+                    total_book_list += book_list
+                    item += 25
+                    time.sleep(2)
                 else:
-                    self.__remove_duplicate_element(book_url_in_page)
-                    for book_url in book_url_in_page:
-                        doulist_content.append(book_url)
-                    i += 25
-                # limited function now: only first 25 book in a long list is get.
-
-                self.__remove_duplicate_element(doulist_content)  
-                return doulist_content
+                    break
+            #print total_book_list
+            return total_book_list
 
 
 
@@ -47,14 +67,3 @@ class bookIf:
 
     def get_book_info(self, book_id):
         pass
-
-    # remove duplicate of a list
-    def __remove_duplicate_element(self, list):
-        i = 0
-        while i <= len(list) - 1:
-            j = i + 1
-            while j <= len(list) - 1:
-                if list[i] == list[j]:
-                    del list[j]
-                j += 1
-            i += 1
