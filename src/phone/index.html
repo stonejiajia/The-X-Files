@@ -127,9 +127,9 @@
                                                               title: {
                                                               text: '本周热点图书'
                                                               },
-                                                              subtitle: {
+                                                              /*subtitle: {
                                                               text: 'in this week'
-                                                              },
+                                                              },*/
                                                               xAxis: {
                                                               categories: book_list
                                                               },
@@ -172,10 +172,10 @@
                     
                 #bookchart {
                     /*position: absolute; */ /*This code will block pull-to-refresh function*/ 
-                    z-index: 1;
-                    top: 20px;
-                    bottom: 48px;
-                    left: 0;
+                    /*z-index: 1;
+                    top: 0px;
+                    bottom: 80px;
+                    left: 0px;*/
                     width: 100%;
                     height: 800px;
                     background: #fff;
@@ -193,6 +193,7 @@
     <body>
         
         <div id="container"  data-role="content" data-scrollz="pull">
+            <p>
             <div id="bookchart"></div>
             
         </div>
