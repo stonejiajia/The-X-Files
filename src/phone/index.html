@@ -26,12 +26,16 @@
                             
                             loading = true;
                             protocol = document.location.protocol == 'file:' ? 'http:' : document.location.protocol;
-                            url = 'cp42.sinaapp.com';
+                            urlcp4 = 'cp42.sinaapp.com';
+                            urlcici = 'cici19891.sinaapp.com';
+                            urlcat = 'svntesting.sinaapp.com';
                             //url = 'http://zippy1978.tumblr.com/rss';
                             $.ajax({
                                    type: "GET",
                                    //url: protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=1000&callback=?&q=' + encodeURIComponent(url),
-                                   url: protocol + encodeURIComponent(url),
+                                   //url: protocol + encodeURIComponent(urlcat),
+                                   //url: protocol + encodeURIComponent(urlcici),
+                                   url: protocol + encodeURIComponent(urlcp4),
                                    //dataType: 'json',
                                    dataType: 'text',
                                    error: function(){
@@ -39,7 +43,7 @@
                                    },
                                    success: function(xmlbook){
                                    
-                                   var targetList = $('#items');
+                                   //var targetList = $('#items');
                                    
                                    /*values = xml.responseData.feed.entries;
                                     
@@ -55,7 +59,7 @@
                                     targetList.listview("refresh");*/
                                    
                                    //var txt = document.getElementById("textscroller").value;
-                                   document.getElementById("textscroller").innerHTML = xmlbook;
+                                   //document.getElementById("textscroller").innerHTML = xmlbook;
                                    //if (loading == ture) {
                                    //   list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
                                    //   $('#bookchart').highcharts();
@@ -162,24 +166,14 @@
                 $(showBookChart);
                 
                 
-                    </script>
+                </script>
                 
                 <style type="text/css">
-                    #textscroller {
-                        /*position: absolute; */
-                        z-index: 1;
-                        top: 400px;
-                        bottom: 48px;
-                        left: 0;
-                        width: 100%;
-                        background: #fff;
-                        overflow: hidden;
-                    }
-                
+                    
                 #bookchart {
                     /*position: absolute; */ /*This code will block pull-to-refresh function*/ 
                     z-index: 1;
-                    top: 0px;
+                    top: 20px;
                     bottom: 48px;
                     left: 0;
                     width: 100%;
@@ -200,9 +194,6 @@
         
         <div id="container"  data-role="content" data-scrollz="pull">
             <div id="bookchart"></div>
-            <div id="textscroller" >
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
             
         </div>
     </body>
