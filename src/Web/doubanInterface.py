@@ -3,6 +3,7 @@
 import re
 import urllib2
 import time
+import json
 
 class bookIf:
     def __init__(self, youth_booklist_url, author_booklist_url):
@@ -42,7 +43,15 @@ class bookIf:
             return None
 
     def get_book_info(self, book_id):
-        pass
+        root_api = 'https://api.douban.com/v2/book/'
+        api = root_api + book_id
+        response = urllib2.urlopen(api) 
+        book_info = json.loads(response.read())
+        #print book_info['isbn10']
+        #print book_info['isbn13']
+        return book_info
+        
+        
     
     def __get_douban_booklist(self, url):
         item = 0
@@ -124,7 +133,7 @@ class bookIf:
             if book_list:
                 total_book_list += book_list
                 item_num += 15
-                print book_list
+                #print book_list
                 time.sleep(1) #sleep 1 second to avoid being blocked by douban.com for frequent access.
             else:
                 break        
