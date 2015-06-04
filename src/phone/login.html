@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!--meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"-->
+        <!--jquery-->
+        <script src=jquery/jquery-1.11.3.min.js></script>
+        <!-- jquery mobile-->
+        <link rel=stylesheet href=jquery-mobile/css/jquery.mobile-1.4.5.css>
+        <script src=jquery-mobile/js/jquery.mobile-1.4.5.js></script>
+        <!--highcharts-->
+        <script src=hightcharts/highcharts.js></script>
+
+                <script type="text/javascript">
+
+
+                </script>
+                
+                <style type="text/css">
+
+                </style>
+    </head>
+    
+    <body>
+        <!-- first page: book page -->
+        <div id="bookPage" data-fullscreen="true">
+
+          <div id="container" style="text-align：center"  width="50%">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="login" width="50%">
+              <form action="http://cp42.sinaapp.com/addme" method="post">
+                 <div style="text-align：center">我要参加统计</div> 
+                 <input name="douban_id" type="text" width="50"/>
+                 <input value="提交我的豆瓣ID" type="submit">
+               </form>
+            </div>            
+          </div>
+          <div data-role="footer" data-position="fixed" data-fullscreen="true"  data-theme="b" data-tap-toggle = "false">
+            <div data-role="navbar">  
+              <ul>  
+                <!--让a按钮处于凹陷状态，使用info图标，在按钮中跳转到其它页面，要使用target="_self"，否则链接出错-->  
+               <li><a href="index.html" target="_self" data-icon="info">书</a></li>
+                <li><a href="#" class="ui-btn-active ui-state-persist" data-icon="user">我</a></li>
+                <!-- <li><a href="#" target="_self" data-icon="grid">人</a></li> 
+                <li><a href="#" target="_self" data-icon="user">我</a></li>-->
+                </ul>  
+            </div>
+          </div>
+
+        </div> <!-- /page -->
+
+        
+    </body>
+</html>

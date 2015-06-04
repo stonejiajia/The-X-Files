@@ -39,7 +39,7 @@
                                    //dataType: 'json',
                                    dataType: 'text',
                                    error: function(){
-                                   loading = false;
+                                    loading = false;
                                    },
                                    success: function(xmlbook){
                                    
@@ -59,7 +59,8 @@
                                     targetList.listview("refresh");*/
                                    
                                    //var txt = document.getElementById("textscroller").value;
-                                   //document.getElementById("textscroller").innerHTML = xmlbook;
+                                //document.getElementById("textscroller").innerHTML = xmlbook;
+                                //alert(xmlbook)
                                    //if (loading == ture) {
                                    //   list = ['机器人叛乱', '创造力', '从0到1', '失控', '经验的疆界']
                                    //   $('#bookchart').highcharts();
@@ -71,7 +72,7 @@
                                 book_list.length = 0;
                                 tag_number_list.length = 0;
                                 for (i=0; i < pop_book_list.length; i++){
-                                    var bookname = pop_book_list[i].name;
+                                    var bookname = pop_book_list[i].book_name;
                                     if (bookname.length > 5){
                                         cut_bookname = bookname.substr(0,4);
                                         cut_bookname += '...';
@@ -79,7 +80,7 @@
                                     }else{
                                         book_list.push(bookname);
                                     }                                  
-                                    tag_number_list.push(pop_book_list[i].want);
+                                    tag_number_list.push(pop_book_list[i].marked_times);
                                 }
                                    
                                    //截断书名的代码
@@ -114,12 +115,12 @@
                                
                                // Reload
                                loadMore();
-                               });
+                });
 
 
                                 book_list = ['Books', 'Lover', 'Rebel of Robots', 'Story', 'Element of Styles'];
                                 tag_number_list = [3,6,4,7,8];
-                                function showBookChart() {
+                function showBookChart() {
                                    $('#bookchart').highcharts({
                                                               chart: {
                                                               type: 'bar'
@@ -151,7 +152,7 @@
                                                               reversed: true
                                                               },
                                                               series: [{
-                                                                       name: '已读',
+                                                                       name: '想读',
                                                                        data: tag_number_list//[5,3,4,7,2]
                                                                        //}, {
                                                                        //   name: '在读',
@@ -193,9 +194,18 @@
     <body>
         
         <div id="container"  data-role="content" data-scrollz="pull">
-            <p>
+           <br>
             <div id="bookchart"></div>
             
         </div>
+  <div data-role="footer" data-position="fixed" data-fullscreen="true"  data-theme="b" data-tap-toggle = "false">  
+      <div data-role="navbar">  
+      <ul>  
+      <!--让a按钮处于凹陷状态，使用info图标，在按钮中跳转到其它页面，要使用target="_self"，否则链接出错-->  
+        <li><a href="#" class="ui-btn-active ui-state-persist" data-icon="info">书</a></li>  
+        <li><a href="login.html" target="_self" data-icon="user">我</a></li>
+      </ul>  
+    </div>  
+  </div>
     </body>
 </html>
